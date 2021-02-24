@@ -33,11 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvTask = new System.Windows.Forms.DataGridView();
-            this.clnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clnIdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtHoraDespendida = new System.Windows.Forms.TextBox();
@@ -47,10 +42,16 @@
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtData = new System.Windows.Forms.MaskedTextBox();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.clnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnTitulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnIdDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -88,7 +89,8 @@
             this.clnTitulo,
             this.clnHora,
             this.clnDescricao,
-            this.clnIdDesc});
+            this.clnIdDesc,
+            this.clnId});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -112,37 +114,6 @@
             this.dgvTask.Size = new System.Drawing.Size(365, 101);
             this.dgvTask.TabIndex = 10;
             this.dgvTask.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTask_CellContentClick);
-            // 
-            // clnData
-            // 
-            this.clnData.HeaderText = "Data";
-            this.clnData.Name = "clnData";
-            this.clnData.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clnTitulo
-            // 
-            this.clnTitulo.HeaderText = "Título";
-            this.clnTitulo.Name = "clnTitulo";
-            this.clnTitulo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clnHora
-            // 
-            this.clnHora.HeaderText = "Hora despendida";
-            this.clnHora.Name = "clnHora";
-            this.clnHora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clnDescricao
-            // 
-            this.clnDescricao.HeaderText = "Descrição";
-            this.clnDescricao.Name = "clnDescricao";
-            this.clnDescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // clnIdDesc
-            // 
-            this.clnIdDesc.HeaderText = "IdDescription";
-            this.clnIdDesc.Name = "clnIdDesc";
-            this.clnIdDesc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clnIdDesc.Visible = false;
             // 
             // btnAdicionar
             // 
@@ -219,7 +190,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtData);
+            this.groupBox2.Controls.Add(this.dtpData);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(2, 6);
             this.groupBox2.Name = "groupBox2";
@@ -227,17 +198,14 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             // 
-            // txtData
+            // dtpData
             // 
-            this.txtData.Location = new System.Drawing.Point(10, 30);
-            this.txtData.Mask = "00/00/0000";
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(100, 20);
-            this.txtData.TabIndex = 9;
-            this.txtData.ValidatingType = typeof(System.DateTime);
-            this.txtData.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txtData_MaskInputRejected);
-            this.txtData.TextChanged += new System.EventHandler(this.txtData_TextChanged_1);
-            this.txtData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtData_KeyPress_2);
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(10, 30);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(89, 20);
+            this.dtpData.TabIndex = 11;
+            this.dtpData.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label6
             // 
@@ -268,6 +236,43 @@
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // clnData
+            // 
+            this.clnData.HeaderText = "Data";
+            this.clnData.Name = "clnData";
+            this.clnData.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clnTitulo
+            // 
+            this.clnTitulo.HeaderText = "Título";
+            this.clnTitulo.Name = "clnTitulo";
+            this.clnTitulo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clnHora
+            // 
+            this.clnHora.HeaderText = "Hora despendida";
+            this.clnHora.Name = "clnHora";
+            this.clnHora.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clnDescricao
+            // 
+            this.clnDescricao.HeaderText = "Descrição";
+            this.clnDescricao.Name = "clnDescricao";
+            this.clnDescricao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // clnIdDesc
+            // 
+            this.clnIdDesc.HeaderText = "IdDescription";
+            this.clnIdDesc.Name = "clnIdDesc";
+            this.clnIdDesc.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clnIdDesc.Visible = false;
+            // 
+            // clnId
+            // 
+            this.clnId.HeaderText = "Id";
+            this.clnId.Name = "clnId";
+            this.clnId.Visible = false;
             // 
             // frmTask
             // 
@@ -304,15 +309,16 @@
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.DataGridView dgvTask;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.MaskedTextBox txtData;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnData;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnTitulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn clnIdDesc;
-        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clnId;
     }
 }
 
