@@ -1,0 +1,9 @@
+﻿Attempting to gather dependency information for package 'Dapper.2.0.78' with respect to project 'TaskProject', targeting '.NETFramework,Version=v4.6.2'
+Attempting to resolve dependencies for package 'Dapper.2.0.78' with DependencyBehavior 'Lowest'
+Resolving actions to install package 'Dapper.2.0.78'
+Resolved actions to install package 'Dapper.2.0.78'
+Adding package 'Dapper.2.0.78' to folder 'C:\Users\deivd.silva\Documents\Deivd Krug\C#\TaskProject\TaskProject\packages'
+Added package 'Dapper.2.0.78' to folder 'C:\Users\deivd.silva\Documents\Deivd Krug\C#\TaskProject\TaskProject\packages'
+Added package 'Dapper.2.0.78' to 'packages.config'
+Successfully installed 'Dapper 2.0.78' to TaskProject
+========== Finished ==========

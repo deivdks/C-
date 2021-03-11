@@ -99,7 +99,7 @@ namespace TaskProject
 
 
                 var task = new DailyTask(int.Parse(r.Cells["clnId"].Value == null?"0":r.Cells["clnId"].Value.ToString()),
-                                                            int.Parse(dtpData.Tag == null ? "0":dtpData.Tag.ToString()),
+                                                            int.Parse(dgvTask.Tag == null ? "0": dgvTask.Tag.ToString()),
                                                             DateTime.Parse(r.Cells["clnData"].Value.ToString()),
                                                             r.Cells["clnTitulo"].Value.ToString(),
                                                             Convert.ToDouble(r.Cells["clnHora"].Value, new CultureInfo("en-US")),

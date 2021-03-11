@@ -10,7 +10,7 @@ namespace TaskProject.Classes
 {
     public class SqlConn
     {
-        private static string _connectionString = @"Data Source=.\data\dbTask.db; Version=3;";
+        private static string _connectionString = @"Data Source=C:\\Users\\deivd.silva\\Documents\\Deivd Krug\\C#\\TaskProject\\TaskProject\\TaskProject\\data\\dbTask.db; Version=3;"; //@"Data Source=.\data\dbTask.db; Version=3;";
 
         /*public static SQLiteConnection DbConnection()
         {

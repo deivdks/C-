@@ -22,6 +22,7 @@ namespace TaskProject.Classes
             this.Data = Data;
             this.Titulo=Titulo;
             this.Hora=Hora;
+            this.Descricao = Descricao;
             //this.Descricao = Descricao;
         }
 
