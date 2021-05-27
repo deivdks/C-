@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
+using Dapper;
 
 namespace TaskProject.Classes
 {
     public class SqlConn
     {
-        private static string _connectionString = @"Data Source=C:\\Users\\deivd.silva\\Documents\\Deivd Krug\\C#\\TaskProject\\TaskProject\\TaskProject\\data\\dbTask.db; Version=3;"; //@"Data Source=.\data\dbTask.db; Version=3;";
+        private static string _connectionString = @"Data Source=C:\\Users\\deivd.silva\\Documents\\Deivd Krug\\C#\\TaskProject\\TaskProject\\TaskProject\\data\\dbTask.db;"; //@"Data Source=.\data\dbTask.db; Version=3;";
 
         /*public static SQLiteConnection DbConnection()
         {
@@ -18,6 +20,24 @@ namespace TaskProject.Classes
             dbConn.Open();
             return dbConn;
         }*/
+
+        public static void ExecuteNonQueryDapper(String sql, Dictionary<string, object> parameters)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var command = connection.Query(sql, parameters);
+
+
+                //var command = new sqlCommand(sql, connection);
+               /* foreach (var param in parameters)
+                {
+                    command.Parameters.AddWithValue(param.Key, param.Value);
+                }
+                command.ExecuteNonQueryDapper();*/
+            }
+        }
 
         public static void ExecuteNonQuery(String sql, Dictionary<string, object> parameters)
         {

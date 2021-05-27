@@ -114,7 +114,7 @@ namespace TaskProject
 
                 if (task.Id == 0)
                 {
-                    SqlConn.ExecuteNonQuery(SqlGenerate.InsertDescriptionTask(), dataTaskDesc);
+                    SqlConn.ExecuteNonQueryDapper(SqlGenerate.InsertDescriptionTask(), dataTaskDesc);
                 }else
                 { 
                     SqlConn.ExecuteNonQuery(SqlGenerate.UpdatetDescriptionTask(), dataTaskDesc);
